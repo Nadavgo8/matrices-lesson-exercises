@@ -26,10 +26,23 @@ class EmployeeMatrix extends Matrix {
     }
     return sum;
   }
+  findRichest() {
+    let max = 0;
+    let maxRow = -1;
+    for (let r = 0; r < this.matrix.length; r++) {
+      if (this.matrix[r][3] > max) {
+        max = this.matrix[r][3];
+        maxRow = r;
+      }
+    }
+    return this.matrix[maxRow][1];
+  }
 
   // You can now add methods specific to employees
 }
 
+
+//ex3
 let data = [
   { _id: "e10021", name: "Gillian", department: "Finance", salary: 2000 },
   { _id: "e10725", name: "Tibor", department: "Design", salary: 1200 },
@@ -52,12 +65,17 @@ m.print();
 // e11995  Mar     Design  1300
 // e10732  Nisha   Design  1200
 
-console.log(m.getEmployees("Finance")); //prints [ 'Gillian', 'Anisha' ]
-console.log(m.getEmployees("Design")); //prints [ 'Tibor', 'Jakub', 'Mar', 'Nisha' ]
+// //ex4
+// console.log(m.getEmployees("Finance")); //prints [ 'Gillian', 'Anisha' ]
+// console.log(m.getEmployees("Design")); //prints [ 'Tibor', 'Jakub', 'Mar', 'Nisha' ]
+
+// //ex5
+// console.log(m.getTotalSalary("Finance")) //prints 4300
+// console.log(m.getTotalSalary("Design")) //prints 5300
 
 
-console.log(m.getTotalSalary("Finance")) //prints 4300
-console.log(m.getTotalSalary("Design")) //prints 5300
+//ex6
+console.log(m.findRichest()) //prints Anisha
 
 /* Do not remove the exports below */
 module.exports = EmployeeMatrix;
