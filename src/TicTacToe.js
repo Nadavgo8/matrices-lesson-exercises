@@ -12,9 +12,22 @@ class TicTacToe extends Matrix {
       [".", ".", "."],
     ];
   }
+  play(row, col, player) {
+    let symbol = "x";
+    if (player === 2) {
+      symbol = "o";
+    }
+    this.alter(row, col, symbol);
+  }
 }
 
-let t = new TicTacToe(3, 4);
-t.print();
-t.loadBoard();
-t.print();
+let board = new TicTacToe();
+board.loadBoard();
+
+board.play(2, 2, 1);
+board.play(0, 0, 2);
+board.print();
+//prints
+// o       .       .
+// .       .       .
+// .       .       x
