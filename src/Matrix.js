@@ -40,6 +40,16 @@ class Matrix {
   get(row, col) {
     return this.matrix[row][col];
   }
+  findCoordinate(num) {
+    for (let r = 0; r < this.matrix.length; r++) {
+      for (let c = 0; c < this.matrix[r].length; c++) {
+        if (this.matrix[r][c] === num) {
+          return { x: c, y: r };
+        }
+      }
+    }
+    return { x: -1, y: -1 };
+  }
 }
 
 let m = new Matrix(3, 4);
@@ -54,5 +64,6 @@ m.print();
 m.alter(0, 0, m.get(1, 1));
 m.printColumn(0); //prints 6, 5, 9 (separate lines)
 m.printRow(0); //prints 6, 2, 3, 4 (separate lines)
-
+console.log(m.findCoordinate(12)) //prints {x: 3, y: 2}
+console.log(m.findCoordinate(7)) //prints {x: 2, y: 1}
 module.exports = Matrix;
